@@ -1,0 +1,321 @@
+<!doctype html>
+<!--
+  TARKA · Offerings v3 — buyer-path restructure per external review.
+  Grounded in README + SUPPORT.md + CLAIM_LOCK. Note on severity language:
+  SUPPORT.md forbids publishing response-time hours ("those would be fake
+  SLAs") — the window is set at purchase. So the page explains the
+  mechanism concretely without inventing numbers.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Offerings — the pilot install pack · Tarka</title>
+  <meta name="description" content="Run Tarka free under Elastic License 2.0, or buy the commercial self-host install pack: VPC install assist, Helm values review, SSO wiring, pack GitOps export help, and a purchased severity response window with Sev priority." />
+  <link rel="canonical" href="./offerings.html" />
+  <meta name="theme-color" content="#0b1120" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Tarka" />
+  <meta property="og:title" content="Offerings — the pilot install pack · Tarka" />
+  <meta property="og:description" content="Free clone-and-run under ELv2. Commercial install pack: VPC assist, Helm review, SSO wiring, pack GitOps help, severity response intent." />
+  <meta property="og:url" content="./offerings.html" />
+  <meta property="og:image" content="assets/brand/tarka-logo-on-dark-bg.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="assets/main.css" />
+
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="index.html" aria-label="Tarka — home">
+        <img src="assets/brand/tarka-mark.svg" alt="" />
+        <span class="brand-text"><span class="brand-word">TARKA</span><span class="brand-tag">Prove every signal.</span></span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="offerings.html" aria-current="page">Offerings</a>
+        <a href="contact.html">Contact</a>
+        <a class="btn btn-primary btn-small" href="https://github.com/pamu512/tarka">View on GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO: one commercial ask, one plain-language sentence -->
+    <section class="section hero" data-od-id="hero-offerings">
+      <div class="container hero-center">
+        <p class="eyebrow">Offerings</p>
+        <h1>Buy help installing it. Or run it free.</h1>
+        <p class="lead">In plain terms: Tarka evaluates your signup-to-payout events against JSON rule packs you own. Every decision writes a receipt, and humans Promote anything that goes live.</p>
+        <p class="lead" style="margin-top: -8px;">There is no hosted Tarka Cloud and no SaaS desk to rent. The commercial product is one thing: a <strong>pilot install pack</strong> — we help you install Tarka on your own cluster. We don't operate it.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="contact.html?topic=commercial">Request pilot scope</a>
+          <a class="btn btn-secondary btn-arrow" href="#try">Try it free — <span style="font-family: var(--font-mono); font-size: 0.85em;">make demo</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PILOT PACK: the one thing you can buy -->
+    <section class="section" id="commercial" data-od-id="pilot-pack">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">The pilot install pack</p>
+          <h2 class="h2">One page of scope. No surprises.</h2>
+          <p class="lead" style="margin-top: 16px;">Sold per named pilot — not self-serve checkout, no public price list. The scope and the response window are agreed at purchase and written down before we start. One commercial SKU exists today — this pack; nothing beyond it is announced, and this page won't invent it.</p>
+        </div>
+
+        <div class="ds-wrap">
+          <table class="ds-table">
+            <thead>
+              <tr><th>Item</th><th>What we do</th><th>What we don't</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>VPC install assist</strong></td>
+                <td>Walk your operator through a production-shaped install on <em>your</em> VPC: external Postgres + Redis, your secrets, immutable image pins.</td>
+                <td class="no">Run the cluster. Host Tarka for you.</td>
+              </tr>
+              <tr>
+                <td><strong>Helm values review</strong></td>
+                <td>Review your values against the production-install gates — no sqlite or throwaway storage for decisions, audit, labels, or packs; no leftover default passwords.</td>
+                <td class="no">Treat a green <code class="code-inline">helm template</code> as "production-grade." The grade is a contract, not a render.</td>
+              </tr>
+              <tr>
+                <td><strong>SSO wiring</strong></td>
+                <td>Wire OIDC for desk humans via first-class Helm values. API keys stay the machine path.</td>
+                <td class="no">Become your IdP. Require SAML.</td>
+              </tr>
+              <tr>
+                <td><strong>Pack GitOps export</strong></td>
+                <td>Help you consume the promote-export contract as backup and audit. Desk Promote stays the live source of truth — git is the copy, never the go-live gate.</td>
+                <td class="no">Make a git merge the go-live gate.</td>
+              </tr>
+              <tr>
+                <td><strong>Severity response window</strong></td>
+                <td>Purchased engineer hours with Sev-class priority on your named pilot (see below).</td>
+                <td class="no">An uptime SLA. Any nines. Ever.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Severity, in concrete mechanism terms -->
+        <div class="grid-2 stack-lg" style="margin-top: var(--gap-xl);">
+          <div>
+            <h3 class="h3" style="margin-bottom: var(--gap-sm);">What the window actually buys</h3>
+            <div class="ds-wrap">
+              <table class="ds-table" style="min-width: 0;">
+                <thead>
+                  <tr><th>Sev</th><th>Means</th><th>Response</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td><strong>Sev-1</strong></td><td>Evaluate path down on your pilot</td><td>First human response when a pack engineer is on, in your purchased window</td></tr>
+                  <tr><td><strong>Sev-2</strong></td><td>Degraded evaluate, or install-blocking (OIDC, secrets, Helm render)</td><td>Same window, after Sev-1</td></tr>
+                  <tr><td><strong>Sev-3</strong></td><td>Export how-to, values questions</td><td>Queued in the window</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div>
+            <h3 class="h3" style="margin-bottom: var(--gap-sm);">The window is bought, not implied</h3>
+            <p style="color: var(--muted); font-size: 15px;">You purchase the hours a pack engineer is actually on — agreed at purchase and written into the pilot scope. Sev classes define priority <em>inside that window</em>. We don't publish invented response-time hours, because a number we made up for a brochure would be a fake SLA — and the repo's claim lock forbids it.</p>
+            <p style="color: var(--muted); font-size: 15px;">Your burn alerts and incident response stay on your stack. This pack is not that runbook.</p>
+          </div>
+        </div>
+
+        <!-- What a pilot needs -->
+        <div class="stack-lg" style="margin-top: var(--gap-xl);">
+          <h3 class="h3">What a pilot needs from you</h3>
+          <div class="grid-3">
+            <div class="feature">
+              <div class="feature-mark">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 9h6v6H9z"/></svg>
+              </div>
+              <h3>Your cluster</h3>
+              <p>A VPC you operate — external Postgres and Redis, your secrets, your image pins. We never touch your data plane.</p>
+            </div>
+            <div class="feature">
+              <div class="feature-mark">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"/></svg>
+              </div>
+              <h3>A named pilot</h3>
+              <p>One pilot, one scope — a real fraud ops team in last-mile, food, q-comm, gig, or retail. Banks are not the first beachhead.</p>
+            </div>
+            <div class="feature">
+              <div class="feature-mark">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+              </div>
+              <h3>An operator on your side</h3>
+              <p>Someone who can run Helm and read compose logs with us on calls. We assist your install — we don't staff it.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA with the lock line repeated -->
+        <div class="panel" style="margin-top: var(--gap-xl); display: flex; align-items: center; justify-content: space-between; gap: var(--gap-lg); flex-wrap: wrap;">
+          <div>
+            <p style="margin: 0; color: var(--fg); font-weight: 600;">We help you install. We don't operate your cluster.</p>
+            <p style="margin: 4px 0 0; color: var(--muted); font-size: 14px;">Tell us your stack and timeline — we'll send the scope page and confirm fit honestly, including "not yet" if that's the answer.</p>
+            <p class="meta" style="margin: 8px 0 0;">Beachhead filter: last-mile · food · q-comm · gig · retail — banks are not P0.</p>
+          </div>
+          <a class="btn btn-primary" href="contact.html?topic=commercial">Request pilot scope</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMUNITY TRACK -->
+    <section class="section" id="community" data-od-id="tracks">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">The other track</p>
+          <h2 class="h2">Community: free, best-effort, no SLA.</h2>
+        </div>
+        <div class="grid-2 stack-lg">
+          <article class="plane-card">
+            <span class="meta"><span>Community</span><span>Anyone who cloned</span></span>
+            <h3>Clone and run</h3>
+            <p>Everything you need to run Tarka on your own metal ships in the repository: compose files, Helm charts, operator docs, benchmarks. Support is GitHub issues, best-effort — no SLA, no paid channel, no on-call, and the docs say exactly that.</p>
+            <p class="meta">Free · Elastic License 2.0</p>
+            <a class="text-link" href="https://github.com/pamu512/tarka#day-1-clone-and-run" rel="noopener">Day-1: make doctor &amp;&amp; make demo →</a>
+          </article>
+          <article class="plane-card">
+            <span class="meta"><span>Boundaries</span><span>Stated plainly</span></span>
+            <h3>What the pack is not</h3>
+            <p>Not a SaaS desk, not a hosted tenant, not an uptime percentage, not a SOC 2 attestation, and not "GitLab-grade" by purchasing it. The grade claim has its own gates and a soak checklist — none of them are a receipt from this page.</p>
+            <p class="meta">See SUPPORT.md in the repo for the source</p>
+            <a class="text-link" href="https://github.com/pamu512/tarka/blob/master/SUPPORT.md" rel="noopener">Read SUPPORT.md →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRY IT YOURSELF: education, below the fold -->
+    <section class="section" id="try" data-od-id="try">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Try it yourself — free under ELv2</p>
+          <h2 class="h2">Five on-ramps, one repo.</h2>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <h3>make demo</h3>
+            <p>Preflight, desk, receipt walk. First-hour pages, no shadow agent. The fastest honest look at evaluate + receipts + pack-why.</p>
+          </div>
+          <div class="step">
+            <h3>First decision</h3>
+            <p>The 15-minute path: clean checkout → compose up → <code class="code-inline">first_decision_smoke.py</code> → a live evaluate response with trace_id and score.</p>
+          </div>
+          <div class="step">
+            <h3>Author a pack</h3>
+            <p>Strategy analysts write JSON rule packs; investigators work the Person on Hunt. Investigators never author rules — by design.</p>
+          </div>
+          <div class="step">
+            <h3>Observe &amp; promote</h3>
+            <p>Run pack candidates in shadow, backtest before promote, and let humans Promote through defined gates. Auto-promote stays off by default.</p>
+          </div>
+          <div class="step">
+            <h3>prod-on-k8s</h3>
+            <p>Core-api HA with external PG/Redis, digest-pinned images, SRE compose profiles for sizing. Grade claims follow the contract, not the preset.</p>
+          </div>
+        </div>
+        <p class="meta" style="margin-top: var(--gap-lg);"><a class="text-link" href="https://github.com/pamu512/tarka/blob/master/docs/INDEX.md" rel="noopener">Full operator docs hub →</a></p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq" data-od-id="faq">
+      <div class="container container--narrow">
+        <div class="section-head">
+          <p class="eyebrow">Questions</p>
+          <h2 class="h2">Before you write.</h2>
+        </div>
+        <div>
+          <details class="faq-item">
+            <summary>Is Tarka open-source?</summary>
+            <p>No — <strong>source-available under Elastic License 2.0</strong>. You can clone, modify, and run it on your own metal or VPC for your own fraud operations. You may not provide Tarka to third parties as a hosted or managed service.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Is there a hosted version?</summary>
+            <p>There is no hosted Tarka Cloud, no SaaS desk, and no resale SKU. The commercial offering is an install pack that helps you self-host — the buyer owns the cluster, the warehouse, and the queue.</p>
+          </details>
+          <details class="faq-item">
+            <summary>How do I become a pilot buyer?</summary>
+            <p>Use the contact form (fastest) or open a GitHub issue titled <code class="code-inline">[commercial] pilot scope request</code>. We'll ask about your stack, your fraud ops team, and your timeline, then send the one-page scope. If the fit isn't right — beta, beachhead, or readiness — we'll say so instead of selling you a pack.</p>
+          </details>
+          <details class="faq-item">
+            <summary>What does it run on?</summary>
+            <p>Docker Compose for the desk (Lite / demo / product skins) and Helm for Kubernetes (<code class="code-inline">prod-on-k8s</code> keeps frontend, desk, and Shadow off by default). Day-1 needs Docker, ~4 GB RAM, and ports 8000/8001/3000/5432/6379 free.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Does the AI decide?</summary>
+            <p>No. The Rust evaluate engine decides from JSON packs. The optional LLM copilot (Advise) is forensics-only — it drafts and explains, never Promotes, never demotes, never decides. There is no Tarka-branded model.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Can I migrate my Drools estate?</summary>
+            <p>There is no Drools / Groovy importer, and the docs don't pretend otherwise. JSON packs are the evaluate plane; migration is parallel / phased cutover only. A buyer assessment framework exists to decide CUT vs BAU honestly.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section section--tight cta-strip" data-od-id="cta">
+      <div class="container container--narrow">
+        <h2 class="h2">We help you install. We don't operate your cluster.</h2>
+        <p class="lead">Clone the repo free, or request the pilot pack for assist on your own VPC.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="contact.html?topic=commercial">Request pilot scope</a>
+          <a class="btn btn-secondary" href="https://github.com/pamu512/tarka" rel="noopener">Clone the repo</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div>
+          <span class="brand">
+            <img src="assets/brand/tarka-mark.svg" alt="" />
+            <span class="brand-text"><span class="brand-word">TARKA</span><span class="brand-tag">Prove every signal.</span></span>
+          </span>
+          <p style="margin-top: 16px;">A local-first fraud OS: evaluate packs, audit trail, analyst desk. Beta · no GA tag · development on <code class="code-inline">master</code>.</p>
+        </div>
+        <nav aria-label="Footer">
+          <h2>Site</h2>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="offerings.html">Offerings</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h2>Repo</h2>
+          <ul>
+            <li><a href="https://github.com/pamu512/tarka" rel="noopener">GitHub — pamu512/tarka</a></li>
+            <li><a href="https://github.com/pamu512/tarka/issues" rel="noopener">Community issues</a></li>
+            <li><a href="https://github.com/pamu512/tarka/blob/master/SUPPORT.md" rel="noopener">Support model</a></li>
+            <li><a href="https://github.com/pamu512/tarka/blob/master/LICENSE" rel="noopener">Elastic License 2.0</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__legal">
+        <span>© <span id="year">2026</span> Tarka. Application code source-available under Elastic License 2.0 — not open-source. Run it on your own metal or VPC; don't resell it as a hosted service.</span>
+        <span class="meta">Prove every signal.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/main.js" defer></script>
+</body>
+</html>

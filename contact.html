@@ -1,0 +1,213 @@
+<!doctype html>
+<!--
+  TARKA · Contact v2 — grounded in SUPPORT.md / CONTRIBUTING / SECURITY.
+  Form topics match the real support model (community issue, commercial
+  pack, security, contribution). No invented emails/phones — the repo
+  deliberately publishes none; routing is GitHub-first.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-size=1" />
+  <title>Contact — talk to the maintainers · Tarka</title>
+  <meta name="description" content="Reach the Tarka maintainers: community support via GitHub issues, commercial install-pack enquiries, security reports per the published policy, and contribution guidelines." />
+  <link rel="canonical" href="./contact.html" />
+  <meta name="theme-color" content="#0b1120" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Tarka" />
+  <meta property="og:title" content="Contact — talk to the maintainers · Tarka" />
+  <meta property="og:description" content="Community support via GitHub issues; commercial install-pack enquiries; security reports per the published policy." />
+  <meta property="og:url" content="./contact.html" />
+  <meta property="og:image" content="assets/brand/tarka-logo-on-dark-bg.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="assets/main.css" />
+
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="index.html" aria-label="Tarka — home">
+        <img src="assets/brand/tarka-mark.svg" alt="" />
+        <span class="brand-text"><span class="brand-word">TARKA</span><span class="brand-tag">Prove every signal.</span></span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="offerings.html">Offerings</a>
+        <a href="contact.html" aria-current="page">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section hero" style="padding-bottom: clamp(40px, 5vw, 72px);" data-od-id="hero-contact">
+      <div class="container hero-center">
+        <p class="eyebrow">Contact</p>
+        <h1 class="h1">Talk to the maintainers.</h1>
+        <p class="lead">Bug reports and feature requests belong on GitHub issues. For commercial install-pack enquiries, use the form below and we'll route it. Security reports follow the published policy — never a public issue.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 0;" data-od-id="contact">
+      <div class="container grid-2-1">
+        <!-- FORM -->
+        <div>
+          <div class="panel panel--error" role="alert" hidden style="margin-bottom: var(--gap-lg);">
+            <strong>Something went wrong sending your message.</strong><br />
+            Your note wasn't delivered — but it isn't lost. Please try again in a moment, or open a GitHub issue instead: <a class="text-link" href="https://github.com/pamu512/tarka/issues" rel="noopener">github.com/pamu512/tarka/issues</a>.
+          </div>
+
+          <div class="form-card">
+            <form data-tarka-form novalidate>
+              <div class="error-summary" tabindex="-1" aria-labelledby="error-summary-title">
+                <h2 id="error-summary-title">Problems need fixing</h2>
+                <ul></ul>
+              </div>
+
+              <!-- honeypot -->
+              <div class="hp-field" aria-hidden="true">
+                <label for="company_website">Company website</label>
+                <input type="text" id="company_website" name="company_website" tabindex="-1" autocomplete="off" />
+              </div>
+
+              <div class="form-grid">
+                <div class="field">
+                  <div class="field-label-row">
+                    <label for="cf-name">Name</label>
+                  </div>
+                  <input class="input" type="text" id="cf-name" name="name" data-tarka-field autocomplete="name" required />
+                  <span class="field-error" role="alert"></span>
+                </div>
+                <div class="field">
+                  <div class="field-label-row">
+                    <label for="cf-email">Email</label>
+                  </div>
+                  <input class="input" type="email" id="cf-email" name="email" data-tarka-field autocomplete="email" required />
+                  <span class="field-error" role="alert"></span>
+                </div>
+                <div class="field">
+                  <label for="cf-topic">What's this about?</label>
+                  <select class="select" id="cf-topic" name="topic">
+                    <option value="commercial">Commercial — pilot scope</option>
+                    <option value="general">A general question</option>
+                    <option value="docs">Docs or website feedback</option>
+                    <option value="partnership">Partnership / integration</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="cf-org">Organization <span style="color: var(--muted); font-weight: 400;">(optional)</span></label>
+                  <input class="input" type="text" id="cf-org" name="company" autocomplete="organization" />
+                </div>
+                <div class="field field--full">
+                  <div class="field-label-row">
+                    <label for="cf-message">Message</label>
+                    <span class="field-hint">A sentence or two is plenty.</span>
+                  </div>
+                  <textarea class="textarea" id="cf-message" name="message" data-tarka-field required></textarea>
+                  <span class="field-error" role="alert"></span>
+                </div>
+              </div>
+
+              <div class="row-between" style="margin-top: var(--gap-lg); align-items: center;">
+                <button class="btn btn-primary" type="submit">Send message</button>
+                <span class="form-status meta" aria-live="polite"></span>
+              </div>
+              <p class="form-note">Submit opens a prefilled GitHub issue so maintainers actually see it (static Pages has no server). Bug reports: include the service, tenant, and trace_id.</p>
+            </form>
+
+            <!-- SUCCESS -->
+            <div class="form-success" hidden>
+              <div class="success-mark" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12.5l5 5L20 6.5"/></svg>
+              </div>
+              <h2 class="h3">Thank you, <span data-success-name>friend</span> — your message is in.</h2>
+              <div class="ref">Reference T-000000</div>
+              <p class="lead" style="margin: 0 auto;">Community-track questions get best-effort responses — no SLA, honestly. If it's a bug, filing it on GitHub with the trace_id gets eyes fastest.</p>
+              <p style="margin-top: var(--gap-md);"><button class="btn btn-secondary btn-small" type="button" onclick="window.location.reload()">Send another message</button></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ASIDE -->
+        <aside class="stack" style="gap: var(--gap-xl);">
+          <div class="aside-panel">
+            <h2>Bugs &amp; features</h2>
+            <p><a class="text-link" href="https://github.com/pamu512/tarka/issues" rel="noopener">GitHub Issues</a><br />
+            Include: the service, tenant, trace_id from the evaluate or case response, what you expected vs what happened, compose files or Helm preset, and the commit SHA.</p>
+          </div>
+          <div class="aside-panel">
+            <h2>Security reports</h2>
+            <p>Do not file undisclosed vulnerabilities as public issues. Private vulnerability reporting is not enabled on the repo — contact the maintainers via the channel published on the GitHub profile, and allow up to 5 business days for a first response.</p>
+          </div>
+          <div class="aside-panel">
+            <h2>Contributions</h2>
+            <p>Pull requests land under Elastic License 2.0 with DCO sign-off. One logical change per PR, branching from <code class="code-inline">master</code>. Read CONTRIBUTING.md first.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div>
+          <span class="brand">
+            <img src="assets/brand/tarka-mark.svg" alt="" />
+            <span class="brand-text"><span class="brand-word">TARKA</span><span class="brand-tag">Prove every signal.</span></span>
+          </span>
+          <p style="margin-top: 16px;">A local-first fraud OS: evaluate packs, audit trail, analyst desk. Beta · no GA tag · development on <code class="code-inline">master</code>.</p>
+        </div>
+        <nav aria-label="Footer">
+          <h2>Site</h2>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="offerings.html">Offerings</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h2>Repo</h2>
+          <ul>
+            <li><a href="https://github.com/pamu512/tarka" rel="noopener">GitHub — pamu512/tarka</a></li>
+            <li><a href="https://github.com/pamu512/tarka/issues" rel="noopener">Community issues</a></li>
+            <li><a href="https://github.com/pamu512/tarka/blob/master/SUPPORT.md" rel="noopener">Support model</a></li>
+            <li><a href="https://github.com/pamu512/tarka/blob/master/LICENSE" rel="noopener">Elastic License 2.0</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__legal">
+        <span>© <span id="year">2026</span> Tarka. Application code source-available under Elastic License 2.0 — not open-source. Run it on your own metal or VPC; don't resell it as a hosted service.</span>
+        <span class="meta">Prove every signal.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/main.js" defer></script>
+  <script>
+    /* Pre-select topic from ?topic= query (links from offerings page) */
+    document.addEventListener('DOMContentLoaded', function () {
+      try {
+        var m = window.location.search.match(/[?&]topic=([a-z]+)/);
+        if (m) {
+          var sel = document.getElementById('cf-topic');
+          if (sel) {
+            for (var i = 0; i < sel.options.length; i++) {
+              if (sel.options[i].value === m[1]) { sel.selectedIndex = i; break; }
+            }
+          }
+        }
+      } catch (e) { /* noop */ }
+    });
+  </script>
+</body>
+</html>
