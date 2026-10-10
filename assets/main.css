@@ -1,6 +1,6 @@
 /* ============================================================
-   TARKA — shared stylesheet  v2 (repo-grounded rebrand)
-   Brand: Tarka fraud OS — "Prove every signal."
+   TARKA: shared stylesheet  v2 (repo-grounded rebrand)
+   Brand: Tarka fraud OS. "Prove every signal."
    Surfaces from frontend/src/index.css (slate scale), brand blue
    #3b82f6, decision triad green/amber/red. Discipline: 11 Build
    (restraint, whitespace, typographic hierarchy) on a dark desk.
@@ -8,17 +8,17 @@
 
 /* ---------- tokens ---------- */
 :root {
-  --bg:        #0b1120;   /* page — surface-950            */
-  --surface:   #111a2e;   /* raised cards — surface-900     */
-  --surface-2: #1a2540;   /* hover / sunken — surface-800   */
-  --fg:        #e8eef8;   /* primary text — gray-100        */
-  --muted:     #94a3b8;   /* secondary — gray-400           */
-  --faint:     #64748b;   /* captions — gray-500            */
-  --border:    #27324c;   /* hairlines — surface-700        */
-  --border-2:  #33415e;   /* emphasis hairline — surface-600*/
+  --bg:        #0b1120;   /* page: surface-950            */
+  --surface:   #111a2e;   /* raised cards: surface-900     */
+  --surface-2: #1a2540;   /* hover / sunken: surface-800   */
+  --fg:        #e8eef8;   /* primary text: gray-100        */
+  --muted:     #94a3b8;   /* secondary: gray-400           */
+  --faint:     #7a8ba0;   /* captions, readable on raised cards */
+  --border:    #27324c;   /* hairlines: surface-700        */
+  --border-2:  #33415e;   /* emphasis hairline: surface-600*/
 
-  --accent:      #3b82f6; /* brand blue — brand-500         */
-  --accent-deep: #2563eb; /* hover — brand-600              */
+  --accent:      #3b82f6; /* brand blue: brand-500         */
+  --accent-deep: #2563eb; /* hover: brand-600              */
   --accent-soft: rgba(59, 130, 246, 0.14);
   --ink-soft:    rgba(232, 238, 248, 0.05);
 
@@ -121,6 +121,15 @@ figcaption { margin: 0; }
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap-lg); }
 .grid-2-1 { display: grid; grid-template-columns: 1.9fr 1fr; gap: clamp(40px, 5vw, 80px); align-items: start; }
 
+.grid-2 > *,
+.grid-3 > *,
+.grid-2-1 > *,
+.hero-split > *,
+.split-media > *,
+.step {
+  min-width: 0;
+}
+
 @media (max-width: 980px) {
   .grid-3 { grid-template-columns: 1fr; gap: var(--gap-md); }
   .grid-2 { grid-template-columns: 1fr; }
@@ -191,6 +200,8 @@ code, .code-inline {
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   overflow: hidden;
+  min-width: 0;
+  max-width: 100%;
   box-shadow: var(--shadow-soft);
 }
 .terminal-bar {
@@ -241,6 +252,9 @@ code, .code-inline {
   font-size: var(--fs-small);
   color: var(--muted);
   padding: 8px 2px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
   position: relative;
   transition: color 0.15s ease;
 }
@@ -274,7 +288,7 @@ code, .code-inline {
     gap: var(--gap-sm);
   }
   .site-nav.is-open { display: flex; }
-  .site-nav a { font-size: 17px; padding: 10px 0; }
+  .site-nav a { font-size: 17px; padding: 10px 0; width: 100%; }
   .site-nav a::after { display: none; }
   .site-header .btn { margin-left: 0; margin-top: var(--gap-sm); }
 }
@@ -299,7 +313,7 @@ code, .code-inline {
 .btn-secondary:hover:not([disabled]) { border-color: var(--fg); background: var(--ink-soft); }
 .btn-ghost { background: transparent; color: var(--fg); border-color: transparent; padding-inline: 8px; }
 .btn-ghost:hover:not([disabled]) { color: var(--accent); }
-.btn-small { min-height: 36px; padding: 7px 14px; font-size: 13px; }
+.btn-small { min-height: 44px; padding: 7px 14px; font-size: 13px; }
 .btn-arrow::after { content: '\2192'; transition: transform 0.16s var(--ease-out); }
 .btn-arrow:hover::after { transform: translateX(3px); }
 
@@ -428,6 +442,8 @@ code, .code-inline {
 /* ---------- tables (stack matrix) ---------- */
 .ds-wrap {
   overflow-x: auto;
+  min-width: 0;
+  max-width: 100%;
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   background: var(--surface);
@@ -481,17 +497,19 @@ code, .code-inline {
   background-position: right 14px center;
   padding-right: 38px;
 }
-.input:focus, .select:focus, .textarea:focus {
-  outline: none;
+.input:focus-visible, .select:focus-visible, .textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px var(--accent-soft);
 }
 .input:user-invalid, .select:user-invalid, .textarea:user-invalid {
   border-color: var(--deny);
   background: var(--deny-soft);
 }
-.input:user-invalid:focus, .select:user-invalid:focus, .textarea:user-invalid:focus {
-  box-shadow: 0 0 0 3px var(--deny-soft);
+.input:user-invalid:focus-visible, .select:user-invalid:focus-visible, .textarea:user-invalid:focus-visible {
+  outline: 2px solid var(--deny);
+  outline-offset: 2px;
+  border-color: var(--deny);
 }
 
 .field-error { display: none; font-size: 13px; color: var(--danger); font-weight: 500; }
@@ -569,7 +587,8 @@ code, .code-inline {
 .site-footer p { color: var(--muted); font-size: 14px; max-width: 34ch; }
 .site-footer h2 { font-family: var(--font-body); font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: var(--gap-sm); }
 .site-footer ul { list-style: none; }
-.site-footer ul a { color: var(--muted); font-size: 14px; display: inline-block; padding: 5px 0; }
+.site-footer li + li { margin-top: 4px; }
+.site-footer ul a { color: var(--muted); font-size: 14px; display: inline-flex; align-items: center; min-height: 44px; padding: 5px 0; }
 .site-footer ul a:hover { color: var(--fg); }
 .site-footer__legal { border-top: 1px solid var(--border); padding-top: var(--gap-md); display: flex; justify-content: space-between; gap: var(--gap-md); flex-wrap: wrap; font-size: 12px; color: var(--muted); }
 
@@ -622,17 +641,5 @@ code, .code-inline {
 .error-page .code { font-family: var(--font-display); font-size: clamp(120px, 22vw, 240px); line-height: 1; letter-spacing: -0.04em; color: var(--deny); }
 .error-page .h2 { margin: var(--gap-md) auto var(--gap-sm); max-width: 20ch; }
 .error-page .lead { margin: 0 auto var(--gap-lg); }
-
-/* ---------- @font-face (local, CSP-safe) ---------- */
-@font-face {
-  font-family: 'Instrument Serif';
-  src: url('fonts/instrument-serif-latin.woff2') format('woff2');
-  font-weight: 400; font-style: normal; font-display: swap;
-}
-@font-face {
-  font-family: 'Instrument Serif';
-  src: url('fonts/instrument-serif-italic-latin.woff2') format('woff2');
-  font-weight: 400; font-style: italic; font-display: swap;
-}
 
 .legend-chip--soc::before { background: var(--review); }
