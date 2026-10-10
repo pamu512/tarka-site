@@ -1,5 +1,5 @@
 /* ============================================================
-   TARKA — shared site script
+   TARKA: shared site script
    nav · reveal animations · form validation · lead store · analytics
    ============================================================ */
 (function () {
@@ -103,7 +103,7 @@
   }
 
   /* ============================================================
-     Lead store — persisted contact-form submissions
+     Lead store: persisted contact-form submissions
      ============================================================ */
   var LEADS_KEY = 'tarka_leads_v1';
   var LEAD_TTL_MS = 400 * 24 * 60 * 60 * 1000; // 400 days
@@ -131,21 +131,6 @@
     },
     seedDemo: function () {
       if (store.get('tarka_demo_seeded', false)) { return; }
-      var day = 24 * 60 * 60 * 1000;
-      var now = Date.now();
-      var demo = [
-        { name: 'Ava Lindqvist', email: 'ava@example.com', topic: 'commercial', message: 'We run a last-mile delivery platform in the Nordics and are evaluating Tarka for our fraud desk. Interested in the commercial install pack: VPC assist on our own cluster, and what the severity response window looks like.', _ts: now - 2 * day, demo: true },
-        { name: 'Marcus Chen', email: 'marcus.chen@example.com', topic: 'general', message: 'Got make demo running on a 16 GB laptop \u2014 the doctor check caught a stale process on port 8000, nice touch. Question: can we point GRAPH_SERVICE_URL at an existing Janus graph without AGE?', _ts: now - 5 * day, demo: true },
-        { name: 'Priya Raman', email: 'priya@example.com', topic: 'docs', message: 'Small docs feedback: the 15-minute first decision guide could mention the ALLOW_INSECURE_NO_AUTH caveat earlier \u2014 we missed it on the first pass and hit 401s.', _ts: now - 9 * day, demo: true }
-      ];
-      var leads = TK.leads.all();
-      demo.forEach(function (d) {
-        leads.push(Object.assign({}, d, {
-          id: 'T-DEMO-' + Math.random().toString(36).slice(2, 6).toUpperCase(),
-          _storedAt: new Date(d._ts).toISOString()
-        }));
-      });
-      store.set(LEADS_KEY, leads);
       store.set('tarka_demo_seeded', true);
     },
     clearDemo: function () {
@@ -156,7 +141,7 @@
   };
 
   /* ============================================================
-     Contact form — validation state machine
+     Contact form: validation state machine
      errors: on blur after edit; clear on input; summary on submit
      ============================================================ */
   function validatorsFor(field) {
@@ -172,7 +157,7 @@
       v.push(function (val) {
         if (!val.trim()) { return 'An email address is required so we can reply.'; }
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(val.trim())) {
-          return 'That email address looks incomplete \u2014 it needs a @ and a domain, e.g. name@example.com.';
+          return 'That email address looks incomplete: it needs a @ and a domain, e.g. name@example.com.';
         }
         return '';
       });
@@ -278,7 +263,7 @@
     form.addEventListener('submit', function (e) {
       e.preventDefault();
 
-      /* honeypot — silently accept bot submissions without storing */
+      /* honeypot: silently accept bot submissions without storing */
       var hp = form.querySelector('[name="company_website"]');
       if (hp && hp.value) {
         TK.track('lead_bot_blocked');
@@ -331,7 +316,7 @@
       var titlePrefix = payload.topic === 'commercial'
         ? '[commercial] pilot scope request'
         : '[site] ' + payload.topic;
-      var issueTitle = titlePrefix + ' — ' + payload.name;
+      var issueTitle = titlePrefix + ': ' + payload.name;
       var issueBody = [
         '**From:** ' + payload.name + ' <' + payload.email + '>',
         payload.company ? '**Organization:** ' + payload.company : null,
@@ -348,21 +333,38 @@
       } catch (err) { /* noop */ }
       setSubmitting(false);
       TK.track('lead_submitted', { topic: payload.topic, ref: entry.id, via: 'github_issue' });
+      var success = form.parentElement ? form.parentElement.querySelector('.form-success') : null;
+      if (!success) { return; }
       form.hidden = true;
-      var success = form.parentElement.querySelector('.form-success');
-      if (success) {
-        var refEl = success.querySelector('.ref');
-        if (refEl) { refEl.textContent = 'Reference ' + entry.id + ' — finish filing the GitHub issue that just opened'; }
-        var nameEl = success.querySelector('[data-success-name]');
-        if (nameEl && payload.name) { nameEl.textContent = payload.name.split(' ')[0]; }
-        var lead = success.querySelector('.lead');
-        if (lead) {
-          lead.innerHTML = 'A GitHub issue draft should have opened. If your browser blocked it, use <a class="text-link" href="https://github.com/pamu512/tarka/issues/new" rel="noopener">github.com/pamu512/tarka/issues/new</a> with title <code class="code-inline">' + titlePrefix + '</code>.';
-        }
-        success.hidden = false;
-        success.setAttribute('tabindex', '-1');
-        success.focus();
+      var refEl = success.querySelector('.ref');
+      if (refEl) { refEl.textContent = 'Reference ' + entry.id + '. File the GitHub issue to send this.'; }
+      var h2 = success.querySelector('h2');
+      var firstName = payload.name ? payload.name.split(' ')[0] : '';
+      if (h2) {
+        h2.textContent = firstName
+          ? 'Thank you, ' + firstName + '. Finish the GitHub issue to send this.'
+          : 'Finish the GitHub issue to send this.';
       }
+      var lead = success.querySelector('.lead');
+      if (lead) {
+        lead.textContent = '';
+        lead.appendChild(document.createTextNode('A GitHub issue draft opens in a new tab. If it does not, file it at '));
+        var issueLink = document.createElement('a');
+        issueLink.className = 'text-link';
+        issueLink.href = 'https://github.com/pamu512/tarka/issues/new';
+        issueLink.rel = 'noopener';
+        issueLink.textContent = 'github.com/pamu512/tarka/issues/new';
+        lead.appendChild(issueLink);
+        lead.appendChild(document.createTextNode(' with title '));
+        var titleCode = document.createElement('code');
+        titleCode.className = 'code-inline';
+        titleCode.textContent = titlePrefix;
+        lead.appendChild(titleCode);
+        lead.appendChild(document.createTextNode('.'));
+      }
+      success.hidden = false;
+      success.setAttribute('tabindex', '-1');
+      success.focus();
     });
   }
 

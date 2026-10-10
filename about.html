@@ -1,19 +1,19 @@
 <!doctype html>
 <!--
-  TARKA · About v2 — grounded in VISION.md, ARCHITECTURE.md, README.
+  TARKA · About v2, grounded in VISION.md, ARCHITECTURE.md, README.
 -->
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About — what Tarka is, and isn't · Tarka</title>
+  <title>About: what Tarka is, and isn't · Tarka</title>
   <meta name="description" content="Tarka is a local-first fraud OS: audit everything, review is the exception. What it is, what it deliberately isn't, and the conviction behind it." />
   <link rel="canonical" href="./about.html" />
   <meta name="theme-color" content="#0b1120" />
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Tarka" />
-  <meta property="og:title" content="About — what Tarka is, and isn't · Tarka" />
+  <meta property="og:title" content="About: what Tarka is, and isn't · Tarka" />
   <meta property="og:description" content="Local-first fraud intelligence: audit everything, review is the exception. The vision, the non-goals, the conviction." />
   <meta property="og:url" content="./about.html" />
   <meta property="og:image" content="assets/brand/tarka-logo-on-dark-bg.png" />
@@ -28,7 +28,7 @@
 
   <header class="site-header">
     <div class="container site-header__inner">
-      <a class="brand" href="index.html" aria-label="Tarka — home">
+      <a class="brand" href="index.html" aria-label="Tarka home">
         <img src="assets/brand/tarka-mark.svg" alt="" />
         <span class="brand-text"><span class="brand-word">TARKA</span><span class="brand-tag">Prove every signal.</span></span>
       </a>
@@ -52,7 +52,7 @@
         <div class="hero-center">
           <p class="eyebrow">About · Local-First Fraud Intelligence</p>
           <h1 class="h1">Privacy vs intelligence is a deployment choice.</h1>
-          <p class="lead">Tarka runs inference on metal you control. The model, the graph, and the rule engine share the same air-gapped room when you choose that deployment — so intelligence and privacy stop trading off.</p>
+          <p class="lead">Tarka runs inference on metal you control. The model, the graph, and the rule engine share the same air-gapped room when you choose that deployment, so intelligence and privacy stop trading off.</p>
         </div>
       </div>
     </section>
@@ -62,7 +62,7 @@
       <div class="container">
         <div class="section-head">
           <p class="eyebrow">Honest scope</p>
-          <h2 class="h2">What Tarka is — and isn't.</h2>
+          <h2 class="h2">What Tarka is, and isn't.</h2>
         </div>
         <div class="ds-wrap">
           <table class="ds-table">
@@ -71,7 +71,7 @@
             </thead>
             <tbody>
               <tr>
-                <td>A <strong>local-first fraud OS</strong> — evaluate packs, audit trail, analyst desk</td>
+                <td>A <strong>local-first fraud OS</strong>: evaluate packs, audit trail, analyst desk</td>
                 <td class="no">A better remote score</td>
               </tr>
               <tr>
@@ -91,7 +91,7 @@
                 <td class="no">A card / chargeback product</td>
               </tr>
               <tr>
-                <td>Source-available under Elastic License 2.0 — run it on your own metal or VPC</td>
+                <td>Source-available under Elastic License 2.0: run it on your own metal or VPC</td>
                 <td class="no">A hosted Tarka Cloud for resale</td>
               </tr>
             </tbody>
@@ -107,8 +107,8 @@
           <p class="eyebrow">The mental model</p>
           <h2 class="h2">Evaluate first. Everything else is a plane you can switch off.</h2>
           <p>The canonical decision path is <strong>deterministic evaluate</strong>: <code class="code-inline">core-api</code> exposes <code class="code-inline">POST /decisions/v1/decisions/evaluate</code>, backed by Rust packs in <code class="code-inline">tarka-core</code>. Every decision writes a receipt you can cite later.</p>
-          <p>Around that core, each capability is an <strong>optional plane with an honest off-switch</strong>: graph hops require a configured <code class="code-inline">GRAPH_SERVICE_URL</code> (empty means off — not a degraded sibling identity); Advise requires your own OpenAI-compatible endpoint; enforcement webhooks only fire when a URL and secret are set. Evaluate never waits on graph, and a webhook miss never converts into a block.</p>
-          <p>Overrides and late labels flow back as Observe drafts — <strong>humans Promote</strong> through defined gates, and the live pack stays human-owned. The model never Promotes and never demotes.</p>
+          <p>Around that core, each capability is an <strong>optional plane with an honest off-switch</strong>: graph hops require a configured <code class="code-inline">GRAPH_SERVICE_URL</code> (empty means off, not a degraded sibling identity); Advise requires your own OpenAI-compatible endpoint; enforcement webhooks only fire when a URL and secret are set. Evaluate never waits on graph, and a webhook miss never converts into a block.</p>
+          <p>Overrides and late labels flow back as Observe drafts. <strong>Humans Promote</strong> through defined gates, and the live pack stays human-owned. The model never Promotes and never demotes.</p>
         </div>
         <aside class="stack" style="gap: var(--gap-xl);">
           <div class="aside-panel">
@@ -134,7 +134,7 @@
     <section class="section" data-od-id="qa">
       <div class="container">
         <div class="section-head">
-          <p class="eyebrow">Quality — two separate loops</p>
+          <p class="eyebrow">Quality: two separate loops</p>
           <h2 class="h2">Trust is checked, not assumed.</h2>
         </div>
         <div class="grid-2 stack-lg">
@@ -143,7 +143,7 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/><path d="M7 5v2M7 11v2M7 17v2"/></svg>
             </div>
             <h3>Blind predetermined-N evaluate events</h3>
-            <p>Human-in-the-loop confirmation that the engine does what the packs say — schedulable, skipped only when there's no drift.</p>
+            <p>Human-in-the-loop confirmation that the engine does what the packs say: schedulable, skipped only when there's no drift.</p>
           </article>
           <article class="feature">
             <div class="feature-mark">
@@ -163,13 +163,13 @@
           <p class="eyebrow">Security &amp; claim discipline</p>
           <h2 class="h2">A claim lock keeps the marketing honest.</h2>
           <p>The repo ships with a <strong>CLAIM_LOCK</strong>: buyer-facing copy must match what's actually on <code class="code-inline">master</code>. Fixture holdouts prove wiring, not live tenants. Unknown metrics read <code class="code-inline">null = unknown</code>, never zero-percent theatre.</p>
-          <p>Security reports follow a published policy: master-only fixes during beta, private disclosure through the maintainers' published channel, automated Dependabot / Trivy / CodeQL scanning. None of that is a SOC 2 attestation — and the docs say so plainly.</p>
+          <p>Security reports follow a published policy: master-only fixes during beta, private disclosure through the maintainers' published channel, automated Dependabot / Trivy / CodeQL scanning. None of that is a SOC 2 attestation, and the docs say so plainly.</p>
         </div>
         <aside>
           <div class="terminal" aria-hidden="true">
             <div class="terminal-bar">
               <span class="terminal-dot terminal-dot--r"></span><span class="terminal-dot terminal-dot--y"></span><span class="terminal-dot terminal-dot--g"></span>
-              <span class="terminal-title">claim lock — allowed language</span>
+              <span class="terminal-title">claim lock: allowed language</span>
             </div>
 <pre><span class="ok">✔</span> "beta, no GA, ELv2"
 <span class="ok">✔</span> "humans Promote;
@@ -219,7 +219,7 @@
         <div>
           <h2>Repo</h2>
           <ul>
-            <li><a href="https://github.com/pamu512/tarka" rel="noopener">GitHub — pamu512/tarka</a></li>
+            <li><a href="https://github.com/pamu512/tarka" rel="noopener">GitHub: pamu512/tarka</a></li>
             <li><a href="https://github.com/pamu512/tarka/issues" rel="noopener">Community issues</a></li>
             <li><a href="https://github.com/pamu512/tarka/blob/master/SUPPORT.md" rel="noopener">Support model</a></li>
             <li><a href="https://github.com/pamu512/tarka/blob/master/LICENSE" rel="noopener">Elastic License 2.0</a></li>
@@ -227,7 +227,7 @@
         </div>
       </div>
       <div class="site-footer__legal">
-        <span>© <span id="year">2026</span> Tarka. Application code source-available under Elastic License 2.0 — not open-source. Run it on your own metal or VPC; don't resell it as a hosted service.</span>
+        <span>© <span id="year">2026</span> Tarka. Application code source-available under Elastic License 2.0 (not open-source). Run it on your own metal or VPC; don't resell it as a hosted service.</span>
         <span class="meta">Prove every signal.</span>
       </div>
     </div>
